@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">lambda</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="title_activity_venmo">venmo</string>
+    <string name="lambda_tea">Lambda Tea</string>
+    <string name="begin">Begin!</string>
+    <string name="todo">TODO</string>
+</resources>
