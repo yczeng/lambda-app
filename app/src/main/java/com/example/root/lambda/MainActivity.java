@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().getDecorView().setSystemUiVisibility(flags);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().getDecorView().setSystemUiVisibility(flags);
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        startLockTask();
+        //startLockTask();
     }
 
     @Override
@@ -53,9 +53,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+//    /* Called when the user taps the send button */
+//    public void sendMessage(View view) {
+//        Intent intent = new Intent(this, DisplayMessageActivity.class);
+//        startActivity(intent);
+//    }
+
     /* Called when the user taps the send button */
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        Intent intent = new Intent(this, arduino.class);
         startActivity(intent);
     }
 }

@@ -7,4 +7,29 @@
     android:background="@color/litegreen"
     tools:context="com.example.root.lambda.arduino">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+    <Button
+        android:id="@+id/startFlow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_green_light"
+        android:text="@string/start_flow"
+        />
+
+    <Button
+        android:id="@+id/cancelFlow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="@string/cancel_flow" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
