@@ -49,5 +49,12 @@ public class GlobalVariableClass {
     }
     void setGlobalAdkOutputStream(FileOutputStream newGlobalAdkOutputStream) { globalAdkOutputStream = newGlobalAdkOutputStream; }
 
+
+    void resetEverything() {
+        globalAdkParcelFileDescriptor = null;
+        globalUsbAccessory = null;
+        globalAdkInputStream = null;
+        globalAdkOutputStream = null;
+    }
 }
 

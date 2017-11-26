@@ -9,14 +9,8 @@ import android.widget.Toast;
 
 public class arduino extends AbstractAdkActivity {
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_arduino);
-//
-//
-//    }
 
+    // For onCreate - check the Activity that this is extending - it is covered there, so do not override
 
 
     @Override
@@ -37,8 +31,7 @@ public class arduino extends AbstractAdkActivity {
         cancelFlow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 WriteAdk("LEDOFF");
-                Toast.makeText(getApplicationContext(),
-                        "LEDOFF", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "LEDOFF", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -38,6 +38,8 @@ public abstract  class AbstractAdkActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
+        //GlobalVariableClass.getInstance().resetEverything();
+
         myUsbManager = (UsbManager)getSystemService(Context.USB_SERVICE);
 
 
@@ -66,33 +68,7 @@ public abstract  class AbstractAdkActivity extends AppCompatActivity {
         super.onResume();
 
         if(GlobalVariableClass.getInstance().getGlobalAdkInputStream() == null || GlobalVariableClass.getInstance().getGlobalAdkOutputStream() == null){
-
-            UsbAccessory[] usbAccessoryList = myUsbManager.getAccessoryList();
-            UsbAccessory usbAccessory = null;
-            Toast.makeText(this, "onResume running", Toast.LENGTH_SHORT).show();
-            if(usbAccessoryList != null){
-                usbAccessory = usbAccessoryList[0];
-
-                if(usbAccessory != null){
-                    if(myUsbManager.hasPermission(usbAccessory)){
-                        //already have permission
-                        Toast.makeText(this, "onresume to openusbacc", Toast.LENGTH_SHORT).show();
-                        OpenUsbAccessory(usbAccessory);
-                    }else{
-
-                        if(firstRqsPermission){
-
-                            firstRqsPermission = false;
-
-                            synchronized(myUsbReceiver){
-                                myUsbManager.requestPermission(usbAccessory,
-                                        PendingIntent_UsbPermission);
-                            }
-                        }
-
-                    }
-                }
-            }
+            CreateUsbAccessory();
         }
     }
 
@@ -173,6 +149,8 @@ public abstract  class AbstractAdkActivity extends AppCompatActivity {
                 if(usbAccessory!=null && usbAccessory.equals(GlobalVariableClass.getInstance().getGlobalUsbAccessory())){
                     //closeUsbAccessory();
                 }
+                GlobalVariableClass.getInstance().resetEverything();
+                finish();
             }
         }
     };
@@ -190,8 +168,9 @@ public abstract  class AbstractAdkActivity extends AppCompatActivity {
                             (UsbAccessory)intent.getParcelableExtra(UsbManager.EXTRA_ACCESSORY);
 
                     if(intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)){
-                        OpenUsbAccessory(usbAccessory);
+                        CreateStreams(usbAccessory);
                     }else{
+                        GlobalVariableClass.getInstance().resetEverything();
                         finish();
                     }
                 }
@@ -200,8 +179,8 @@ public abstract  class AbstractAdkActivity extends AppCompatActivity {
 
     };
 
-    private void OpenUsbAccessory(UsbAccessory acc){
-        Toast.makeText(this, "open usb accessory:" + acc.getManufacturer(), Toast.LENGTH_SHORT).show();
+    private void CreateStreams(UsbAccessory acc){
+        //Toast.makeText(this, "open usb accessory:" + acc.getManufacturer(), Toast.LENGTH_SHORT).show();
 
 
         if (GlobalVariableClass.getInstance().getAPFD() == null) {
@@ -209,7 +188,7 @@ public abstract  class AbstractAdkActivity extends AppCompatActivity {
         }
 
         if(GlobalVariableClass.getInstance().getAPFD() != null){
-            Toast.makeText(this, "myAdkParcelFD != null", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "myAdkParcelFD != null", Toast.LENGTH_SHORT).show();
 
             GlobalVariableClass.getInstance().setGlobalUsbAccessory(acc);
             FileDescriptor fileDescriptor = GlobalVariableClass.getInstance().getAPFD().getFileDescriptor();
@@ -220,17 +199,46 @@ public abstract  class AbstractAdkActivity extends AppCompatActivity {
             Thread thread = new Thread(runnableReadAdk);
             thread.start();
 
-            Toast.makeText(this, "started new thread", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "started new thread", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void CreateUsbAccessory(){
+        UsbAccessory[] usbAccessoryList = myUsbManager.getAccessoryList();
+        UsbAccessory usbAccessory = null;
+        //Toast.makeText(this, "onResume running", Toast.LENGTH_SHORT).show();
+        if(usbAccessoryList != null){
+            usbAccessory = usbAccessoryList[0];
+
+            if(usbAccessory != null){
+                if(myUsbManager.hasPermission(usbAccessory)){
+                    //already have permission
+                    //Toast.makeText(this, "onresume to openusbacc", Toast.LENGTH_SHORT).show();
+                    CreateStreams(usbAccessory);
+                }else{
+
+                    if(firstRqsPermission){
+
+                        firstRqsPermission = false;
+
+                        synchronized(myUsbReceiver){
+                            myUsbManager.requestPermission(usbAccessory,
+                                    PendingIntent_UsbPermission);
+                        }
+                    }
+
+                }
+            }
         }
     }
 
     private void closeUsbAccessory(){
-        Toast.makeText(this, "close usb accessory", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "close usb accessory", Toast.LENGTH_SHORT).show();
         if(GlobalVariableClass.getInstance().getAPFD() != null){
             try {
                 GlobalVariableClass.getInstance().getAPFD().close();
             } catch (IOException e) {
-                Toast.makeText(this, "error in closing usb acc", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "error in closing usb acc", Toast.LENGTH_SHORT).show();
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }

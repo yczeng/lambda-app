@@ -53,17 +53,19 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-//    /* Called when the user taps the send button */
-//    public void sendMessage(View view) {
-//        Intent intent = new Intent(this, DisplayMessageActivity.class);
-//        startActivity(intent);
-//    }
-
     /* Called when the user taps the send button */
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, arduino.class);
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
         startActivity(intent);
     }
+
+
+    //The below is for the Arduino testing - jumping directly without having to pay every time to test
+    /* Called when the user taps the send button */
+//    public void sendMessage(View view) {
+//        Intent intent = new Intent(this, arduino.class);
+//        startActivity(intent);
+//    }
 }
 
 

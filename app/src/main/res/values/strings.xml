@@ -8,4 +8,5 @@
     <string name="todo">TODO</string>
     <string name="start_flow">Start Flow</string>
     <string name="cancel_flow">Cancel Flow</string>
+    <string name="place_cup">Place Cup Below To Dispense</string>
 </resources>

@@ -15,6 +15,7 @@
         android:fontFamily="sans-serif"
         android:onClick="sendMessage"
         android:text="Click to Start!"
+        android:textAllCaps="false"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

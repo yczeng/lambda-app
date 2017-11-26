@@ -10,26 +10,59 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
+        android:gravity="top"
         android:orientation="vertical">
-    <Button
-        android:id="@+id/startFlow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAllCaps="false"
-        android:textColor="@android:color/holo_green_light"
-        android:text="@string/start_flow"
-        />
 
-    <Button
-        android:id="@+id/cancelFlow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAllCaps="false"
-        android:textColor="@android:color/holo_red_dark"
-        android:text="@string/cancel_flow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:textSize="50sp"
+            android:textColor="@color/lambdagrey"
+            android:text="@string/place_cup"/>
+
+        <ImageView
+            android:id="@+id/imageViewPlaceCup"
+            android:layout_width="600dp"
+            android:layout_height="400dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@mipmap/placecup" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/startFlow"
+            android:backgroundTint="@color/lambdagreen"
+            android:layout_gravity="center_horizontal"
+            android:textAllCaps="false"
+            android:layout_width="387dp"
+            android:layout_height="99dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/start_flow"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/cancelFlow"
+            android:backgroundTint="@color/dangerred"
+            android:layout_gravity="center_horizontal"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/cancel_flow"
+            android:textSize="30sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

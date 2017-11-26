@@ -3,5 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
     <color name="litegreen">#ffffff</color>
+    <color name="lambdagreen">#749E65</color>
+    <color name="lambdagrey">#303030</color>
+    <color name="dangerred">#881105</color>
 </resources>
