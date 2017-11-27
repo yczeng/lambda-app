@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         if (!mDpm.isAdminActive(deviceAdmin)) {
             Toast.makeText(this, "not active admin", Toast.LENGTH_SHORT).show();
         }
-
         if (mDpm.isDeviceOwnerApp(getPackageName())) {
             mDpm.setLockTaskPackages(deviceAdmin, new String[]{getPackageName()});
         } else {
@@ -56,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
     @Override
@@ -80,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 //            Toast.makeText(this, "Volume button is disabled", Toast.LENGTH_SHORT).show();
             return true;
         }
-
         return super.onKeyDown(keyCode, event);
     }
 

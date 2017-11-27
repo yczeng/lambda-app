@@ -27,8 +27,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
     @Override
@@ -45,6 +43,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
         }
 
         return super.onKeyDown(keyCode, event);
+    }
+
+    /* Called when the user taps the send button */
+    public void goHome(View view) {
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
     }
 
     /* Called when the user taps the send button */

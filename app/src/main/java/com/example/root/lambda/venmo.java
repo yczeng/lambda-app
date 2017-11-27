@@ -54,8 +54,6 @@ public class venmo extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
     @Override
@@ -141,6 +139,12 @@ public class venmo extends AppCompatActivity {
 
         Intent intent = new Intent(this, arduino.class);
         intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
+    /* Called when the user taps the send button */
+    public void goHome(View view) {
+        Intent intent = new Intent(this, MainActivity2.class);
         startActivity(intent);
     }
 
