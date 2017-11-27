@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().getDecorView().setSystemUiVisibility(flags);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().getDecorView().setSystemUiVisibility(flags);
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        startLockTask();
+        //startLockTask();
     }
 
     @Override
@@ -58,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         startActivity(intent);
     }
+
+
+    //The below is for the Arduino testing - jumping directly without having to pay every time to test
+    /* Called when the user taps the send button */
+//    public void sendMessage(View view) {
+//        Intent intent = new Intent(this, arduino.class);
+//        startActivity(intent);
+//    }
 }
 
 

@@ -9,24 +9,33 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:backgroundTint="@color/lambdagreen"
+        android:layout_width="387dp"
+        android:layout_height="99dp"
         android:layout_marginBottom="108dp"
         android:layout_marginStart="68dp"
         android:onClick="sendMilk"
         android:text="Black Milk Tea"
+        android:fontFamily="sans-serif"
+        android:textSize="30sp"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="387dp"
+        android:layout_height="99dp"
+        android:backgroundTint="@color/lambdagreen"
         android:layout_marginBottom="108dp"
         android:layout_marginEnd="68dp"
         android:onClick="sendMango"
         android:text="Mango Black Tea"
+        android:fontFamily="sans-serif"
+        android:textAllCaps="false"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button2" />
@@ -38,8 +47,8 @@
         android:layout_marginEnd="352dp"
         android:layout_marginTop="48dp"
         android:fontFamily="sans-serif"
-        android:text="Choose your flavor."
-        android:textColor="?attr/colorButtonNormal"
+        android:text="Choose your flavor"
+        android:textColor="@color/lambdagrey"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
