@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import static com.example.root.lambda.venmo.EXTRA_MESSAGE;
+
 public class arduino extends AbstractAdkActivity {
 
 
@@ -16,6 +18,13 @@ public class arduino extends AbstractAdkActivity {
     @Override
     protected void doOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_arduino);
+
+        Toast.makeText(this, "doOnCreate ran arduino", Toast.LENGTH_SHORT).show();
+
+        Intent priorIntent = getIntent();   // For getting the variables from the flavors that they chose.
+        String message = priorIntent.getStringExtra(EXTRA_MESSAGE);
+
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
         Button startFlow = (Button)findViewById(R.id.startFlow);
         Button cancelFlow = (Button)findViewById(R.id.cancelFlow);
