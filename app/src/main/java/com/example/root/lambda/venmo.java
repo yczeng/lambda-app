@@ -124,6 +124,7 @@ public class venmo extends AppCompatActivity {
 
             @Override
             public void onCloseReceived() {
+                ((TextView)findViewById(R.id.textView)).setText("Waiting for connection...");
                 System.out.println("onCloseReceived");
             }
         };

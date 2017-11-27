@@ -29,4 +29,8 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
     compile 'tech.gusavila92:java-android-websocket-client:1.1.4'
     compile 'com.github.nkzawa:socket.io-client:0.3.0'
+
+    annotationProcessor 'com.jakewharton:butterknife:7.0.0'
+    compile 'com.jakewharton:butterknife:7.0.0'
+    compile 'com.android.support:appcompat-v7:22.1.0'
 }
