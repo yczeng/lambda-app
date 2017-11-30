@@ -12,12 +12,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Objects;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.java_websocket.WebSocket;
 import tech.gusavila92.websocketclient.WebSocketClient;
+
+import static java.math.BigInteger.probablePrime;
 
 
 public class venmo extends AppCompatActivity {
@@ -84,16 +89,28 @@ public class venmo extends AppCompatActivity {
         }
 
         webSocketClient = new WebSocketClient(uri) {
+            long B = 2261516941L;
+            long C = 4252492303L;
+            BigInteger A_bi = BigInteger.probablePrime(256, new Random());
+            long A = Math.abs(A_bi.intValue());
+//            long A = 41;
+            String A_C_string = String.valueOf(A * C);
+
             @Override
             public void onOpen() {
                 System.out.println("onOpen");
-                webSocketClient.send("Hello, World!");
+                GlobalVariableClass.getInstance().setEndConnection(false);
+                long send = B * A;
+//                webSocketClient.send("A IS: " + String.valueOf(A));
+                webSocketClient.send(String.valueOf(send));
                 verifyConnection(null);
             }
 
             @Override
             public void onTextReceived(String message) {
-                if(message.equals("boba")){
+//                webSocketClient.send("check if working");
+//                webSocketClient.send("MESSAGE IS" + message);
+                if (message.equals(A_C_string)) {
                     webSocketClient.send("now vending boba");
                     move();
                 }
@@ -127,9 +144,9 @@ public class venmo extends AppCompatActivity {
             }
         };
 
-        webSocketClient.setConnectTimeout(10000);
-        webSocketClient.setReadTimeout(60000);
-        webSocketClient.enableAutomaticReconnection(5000);
+        webSocketClient.setConnectTimeout(500);
+//        webSocketClient.setReadTimeout(60000);
+        webSocketClient.enableAutomaticReconnection(500);
         webSocketClient.connect();
     }
 
@@ -149,7 +166,7 @@ public class venmo extends AppCompatActivity {
     }
 
     public void verifyConnection(View view) {
-        ((TextView)findViewById(R.id.textView)).setText("Please venmo $3 to @CZeng to continue.");
+        ((TextView)findViewById(R.id.textView)).setText("Please venmo $3.50 to @LambdaTea to continue.");
     }
 
     public void playVideo(){

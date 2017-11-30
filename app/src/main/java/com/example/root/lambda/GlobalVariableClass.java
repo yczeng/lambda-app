@@ -49,6 +49,9 @@ public class GlobalVariableClass {
     }
     void setGlobalAdkOutputStream(FileOutputStream newGlobalAdkOutputStream) { globalAdkOutputStream = newGlobalAdkOutputStream; }
 
+    private boolean endConnection = false;
+    boolean getEndConnection(){return endConnection; }
+    void setEndConnection(boolean boo) {endConnection = boo;}
 
     void resetEverything() {
         globalAdkParcelFileDescriptor = null;

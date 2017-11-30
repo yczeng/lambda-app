@@ -24,9 +24,9 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="1005dp"
-        android:layout_height="123dp"
-        android:layout_marginEnd="124dp"
+        android:layout_width="1066dp"
+        android:layout_height="129dp"
+        android:layout_marginEnd="105dp"
         android:layout_marginTop="132dp"
         android:fontFamily="sans-serif"
         android:text="Waiting for connection..."
