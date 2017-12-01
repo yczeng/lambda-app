@@ -15,8 +15,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d189a5a-dd6b-461c-be5a-12ecaa7b4e55" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/MainActivity2.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
@@ -26,11 +24,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/DisplayMessageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/DisplayMessageActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/GlobalVariableClass.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/GlobalVariableClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/arduino.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/arduino.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/venmo.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/venmo.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,8 +71,8 @@
       <file leaf-file-name="venmo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/venmo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="166" column="43" lean-forward="false" selection-start-line="166" selection-start-column="43" selection-end-line="166" selection-end-column="43" />
+            <state relative-caret-position="2051">
+              <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="2" selection-end-line="165" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1167#1250#0" expanded="true" />
@@ -94,8 +87,8 @@
                 <element signature="e#4030#4031#0" expanded="true" />
                 <element signature="e#4104#4105#0" expanded="true" />
                 <element signature="e#4170#4171#0" expanded="true" />
-                <element signature="e#5593#5785#0" expanded="true" />
-                <element signature="e#5784#5785#0" expanded="true" />
+                <element signature="e#5595#5787#0" expanded="true" />
+                <element signature="e#5786#5787#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2159,7 +2152,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512112322756" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512113406309" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2207,7 +2200,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512112322756" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512113406309" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2390,7 +2383,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512112322757" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1512113406313" />
       </method>
     </configuration>
     <list size="1">
@@ -2567,8 +2560,8 @@
             <element signature="e#4030#4031#0" expanded="true" />
             <element signature="e#4104#4105#0" expanded="true" />
             <element signature="e#4170#4171#0" expanded="true" />
-            <element signature="e#5593#5785#0" expanded="true" />
-            <element signature="e#5784#5785#0" expanded="true" />
+            <element signature="e#5595#5787#0" expanded="true" />
+            <element signature="e#5786#5787#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2674,8 +2667,8 @@
             <element signature="e#4030#4031#0" expanded="true" />
             <element signature="e#4104#4105#0" expanded="true" />
             <element signature="e#4170#4171#0" expanded="true" />
-            <element signature="e#5593#5785#0" expanded="true" />
-            <element signature="e#5784#5785#0" expanded="true" />
+            <element signature="e#5595#5787#0" expanded="true" />
+            <element signature="e#5786#5787#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2943,8 +2936,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/root/lambda/venmo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="166" column="43" lean-forward="false" selection-start-line="166" selection-start-column="43" selection-end-line="166" selection-end-column="43" />
+        <state relative-caret-position="2051">
+          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="2" selection-end-line="165" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1167#1250#0" expanded="true" />
@@ -2959,8 +2952,8 @@
             <element signature="e#4030#4031#0" expanded="true" />
             <element signature="e#4104#4105#0" expanded="true" />
             <element signature="e#4170#4171#0" expanded="true" />
-            <element signature="e#5593#5785#0" expanded="true" />
-            <element signature="e#5784#5785#0" expanded="true" />
+            <element signature="e#5595#5787#0" expanded="true" />
+            <element signature="e#5786#5787#0" expanded="true" />
           </folding>
         </state>
       </provider>
