@@ -113,6 +113,7 @@ public class venmo extends AppCompatActivity {
                 if (message.equals(A_C_string)) {
                     webSocketClient.send("now vending boba");
                     move();
+                    webSocketClient.close();
                 }
                 System.out.println("onTextReceived");
             }
@@ -163,8 +164,7 @@ public class venmo extends AppCompatActivity {
     /* Called when the user taps the send button */
     public void goHome(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }
