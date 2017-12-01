@@ -66,7 +66,7 @@
             android:text="@string/start_flow"
             android:textSize="30sp" />
 
-        <Button
+        <!--Button
             android:id="@+id/cancelFlow"
             android:backgroundTint="@color/dangerred"
             android:layout_gravity="center_horizontal"
@@ -77,7 +77,7 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif"
             android:text="@string/cancel_flow"
-            android:textSize="30sp" />
+            android:textSize="30sp" / -->
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -24,25 +24,38 @@ public class arduino extends AbstractAdkActivity {
         Intent priorIntent = getIntent();   // For getting the variables from the flavors that they chose.
         String message = priorIntent.getStringExtra(EXTRA_MESSAGE);
 
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "From Intent: " + message, Toast.LENGTH_SHORT).show();
 
         Button startFlow = (Button)findViewById(R.id.startFlow);
-        Button cancelFlow = (Button)findViewById(R.id.cancelFlow);
+        //Button cancelFlow = (Button)findViewById(R.id.cancelFlow);
 
-        startFlow.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                WriteAdk("LEDON");
-                Toast.makeText(getApplicationContext(),
-                        "LEDON", Toast.LENGTH_SHORT).show();
-            }
+        if (message == "mang") {
+            startFlow.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    WriteAdk("mango");
+                    Toast.makeText(getApplicationContext(),
+                            "Sending mango", Toast.LENGTH_SHORT).show();
+                }
             });
+        }
+        else {
+            startFlow.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    WriteAdk("milk");
+                    Toast.makeText(getApplicationContext(),
+                            "Sending milk", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
-        cancelFlow.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                WriteAdk("LEDOFF");
-                Toast.makeText(getApplicationContext(), "LEDOFF", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+
+//        cancelFlow.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                WriteAdk("milk");
+//                Toast.makeText(getApplicationContext(), "Sending milk", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
     }
 
@@ -51,7 +64,8 @@ public class arduino extends AbstractAdkActivity {
         Toast.makeText(getApplicationContext(), "return text: " + stringIn, Toast.LENGTH_SHORT).show();
 
     }
-    
+
+
     /* Called when the user taps the send button */
     public void goHome(View view) {
         Intent intent = new Intent(this, MainActivity.class);
@@ -61,6 +75,7 @@ public class arduino extends AbstractAdkActivity {
 
     @Override
     public void onBackPressed() {
+        //Nothing
     }
 
     @Override
