@@ -31,6 +31,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/dangerred"
+        android:onClick="skipVenmo"
+        android:text="Skip"
+        android:fontFamily="sans-serif"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        />
 
 </android.support.constraint.ConstraintLayout>

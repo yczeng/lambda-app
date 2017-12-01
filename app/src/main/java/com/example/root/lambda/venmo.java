@@ -162,4 +162,16 @@ public class venmo extends AppCompatActivity {
         mVideoView2.requestFocus();
         mVideoView2.start();
     }
+
+
+
+    /* Called when the user taps the send button */
+    public void skipVenmo(View view) {
+        Intent current = getIntent();
+        String message = current.getStringExtra(DisplayMessageActivity.EXTRA_MESSAGE);
+
+        Intent intent = new Intent(this, arduino.class);
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
 }

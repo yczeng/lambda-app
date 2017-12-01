@@ -22,7 +22,7 @@ public class arduino extends AbstractAdkActivity {
         Toast.makeText(this, "doOnCreate ran arduino", Toast.LENGTH_SHORT).show();
 
         Intent priorIntent = getIntent();   // For getting the variables from the flavors that they chose.
-        String message = priorIntent.getStringExtra(EXTRA_MESSAGE);
+        final String message = priorIntent.getStringExtra(EXTRA_MESSAGE);
 
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
@@ -31,16 +31,16 @@ public class arduino extends AbstractAdkActivity {
 
         startFlow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                WriteAdk("LEDON");
+                WriteAdk("mango");
                 Toast.makeText(getApplicationContext(),
-                        "LEDON", Toast.LENGTH_SHORT).show();
+                        "Sending mango", Toast.LENGTH_SHORT).show();
             }
             });
 
         cancelFlow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                WriteAdk("LEDOFF");
-                Toast.makeText(getApplicationContext(), "LEDOFF", Toast.LENGTH_SHORT).show();
+                WriteAdk("milk");
+                Toast.makeText(getApplicationContext(), "Sending milk", Toast.LENGTH_SHORT).show();
             }
         });
 
