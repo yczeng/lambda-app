@@ -47,7 +47,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     /* Called when the user taps the send button */
     public void goHome(View view) {
-        Intent intent = new Intent(this, MainActivity2.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
@@ -57,13 +57,15 @@ public class DisplayMessageActivity extends AppCompatActivity {
         String message = "milk";
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
+        finish();
     }
 
     /* Called when the user taps the send button */
     public void sendMango(View view) {
         Intent intent = new Intent(this, venmo.class);
-        String message = "mango";
+        String message = "mang";
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
+        finish();
     }
 }

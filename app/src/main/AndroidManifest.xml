@@ -79,7 +79,6 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".MainActivity2"></activity>
     </application>
 
 </manifest>

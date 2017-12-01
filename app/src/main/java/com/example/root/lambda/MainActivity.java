@@ -4,6 +4,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -50,7 +51,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "not device owner", Toast.LENGTH_SHORT).show();
         }
-        enableKioskMode(true);
+        if (!GlobalVariableClass.getInstance().getKioskMode()){
+            enableKioskMode(true);
+            GlobalVariableClass.getInstance().setKioskMode(true);
+        }
     }
 
     @Override
@@ -84,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void enableKioskMode(boolean enabled) {

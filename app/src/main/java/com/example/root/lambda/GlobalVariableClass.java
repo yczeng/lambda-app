@@ -49,9 +49,9 @@ public class GlobalVariableClass {
     }
     void setGlobalAdkOutputStream(FileOutputStream newGlobalAdkOutputStream) { globalAdkOutputStream = newGlobalAdkOutputStream; }
 
-    private boolean endConnection = false;
-    boolean getEndConnection(){return endConnection; }
-    void setEndConnection(boolean boo) {endConnection = boo;}
+    private boolean kioskMode = false;
+    boolean getKioskMode(){return kioskMode; }
+    void setKioskMode(boolean boo) {kioskMode = boo;}
 
     void resetEverything() {
         globalAdkParcelFileDescriptor = null;

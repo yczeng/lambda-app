@@ -35,23 +35,23 @@ public class venmo extends AppCompatActivity {
             | View.SYSTEM_UI_FLAG_FULLSCREEN
             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
+    Thread thread1 = new Thread() {
+        public void run() {
+            playVideo();
+        }
+    };
+
+    Thread thread2 = new Thread() {
+        public void run() {
+            createWebSocketClient();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(flags);
         setContentView(R.layout.activity_venmo);
-
-        Thread thread1 = new Thread() {
-            public void run() {
-                playVideo();
-            }
-        };
-
-        Thread thread2 = new Thread() {
-            public void run() {
-                createWebSocketClient();
-            }
-        };
 
         thread1.start();
         thread2.start();
@@ -91,7 +91,7 @@ public class venmo extends AppCompatActivity {
         webSocketClient = new WebSocketClient(uri) {
             long B = 2261516941L;
             long C = 4252492303L;
-            BigInteger A_bi = BigInteger.probablePrime(256, new Random());
+            BigInteger A_bi = BigInteger.probablePrime(32, new Random());
             long A = Math.abs(A_bi.intValue());
 //            long A = 41;
             String A_C_string = String.valueOf(A * C);
@@ -99,17 +99,17 @@ public class venmo extends AppCompatActivity {
             @Override
             public void onOpen() {
                 System.out.println("onOpen");
-                GlobalVariableClass.getInstance().setEndConnection(false);
                 long send = B * A;
 //                webSocketClient.send("A IS: " + String.valueOf(A));
-                webSocketClient.send(String.valueOf(send));
+                Intent current = getIntent();
+                String message = current.getStringExtra(DisplayMessageActivity.EXTRA_MESSAGE);
+
+                webSocketClient.send(message + String.valueOf(send));
                 verifyConnection(null);
             }
 
             @Override
             public void onTextReceived(String message) {
-//                webSocketClient.send("check if working");
-//                webSocketClient.send("MESSAGE IS" + message);
                 if (message.equals(A_C_string)) {
                     webSocketClient.send("now vending boba");
                     move();
@@ -145,7 +145,7 @@ public class venmo extends AppCompatActivity {
         };
 
         webSocketClient.setConnectTimeout(500);
-//        webSocketClient.setReadTimeout(60000);
+//        webSocketClient.setReadTimeout(180000);
         webSocketClient.enableAutomaticReconnection(500);
         webSocketClient.connect();
     }
@@ -157,12 +157,16 @@ public class venmo extends AppCompatActivity {
         Intent intent = new Intent(this, arduino.class);
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
+        finish();
     }
 
     /* Called when the user taps the send button */
     public void goHome(View view) {
-        Intent intent = new Intent(this, MainActivity2.class);
+        Intent intent = new Intent(this, MainActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
     }
 
     public void verifyConnection(View view) {
