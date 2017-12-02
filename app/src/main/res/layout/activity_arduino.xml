@@ -62,6 +62,7 @@
             android:layout_width="387dp"
             android:layout_height="99dp"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="80dp"
             android:fontFamily="sans-serif"
             android:text="@string/start_flow"
             android:textSize="30sp" />

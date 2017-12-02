@@ -9,4 +9,5 @@
     <string name="start_flow">Start Boba</string>
     <string name="cancel_flow">Cancel Flow</string>
     <string name="place_cup">Place Cup Below To Dispense</string>
+    <string name="dispensing">Now Dispensing&#8230;</string>
 </resources>

@@ -18,6 +18,9 @@ public class GlobalVariableClass {
     private FileInputStream globalAdkInputStream = null;
     private FileOutputStream globalAdkOutputStream = null;
 
+    private boolean canVend = false;
+    private String  flavor  = "milk";
+
     private GlobalVariableClass() {
         // The empty class
     }
@@ -48,6 +51,13 @@ public class GlobalVariableClass {
         return globalAdkOutputStream;
     }
     void setGlobalAdkOutputStream(FileOutputStream newGlobalAdkOutputStream) { globalAdkOutputStream = newGlobalAdkOutputStream; }
+
+    boolean getCanVend() {return canVend;}
+    void setCanVend(boolean newCanVend) {canVend = newCanVend;}
+
+    String getFlavor() {return flavor;}
+    void setFlavor(String newFlavor) {flavor = newFlavor;}
+
 
     private boolean kioskMode = false;
     boolean getKioskMode(){return kioskMode; }

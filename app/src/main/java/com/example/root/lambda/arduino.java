@@ -19,8 +19,6 @@ public class arduino extends AbstractAdkActivity {
     protected void doOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_arduino);
 
-        Toast.makeText(this, "doOnCreate ran arduino", Toast.LENGTH_SHORT).show();
-
         Intent priorIntent = getIntent();   // For getting the variables from the flavors that they chose.
         String message = priorIntent.getStringExtra(EXTRA_MESSAGE);
 
@@ -29,25 +27,30 @@ public class arduino extends AbstractAdkActivity {
         Button startFlow = (Button)findViewById(R.id.startFlow);
         //Button cancelFlow = (Button)findViewById(R.id.cancelFlow);
 
-        if (message == "mang") {
-            startFlow.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    WriteAdk("mango");
-                    Toast.makeText(getApplicationContext(),
-                            "Sending mango", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-        else {
-            startFlow.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    WriteAdk("milk");
-                    Toast.makeText(getApplicationContext(),
-                            "Sending milk", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+        GlobalVariableClass.getInstance().setCanVend(true);
 
+//        if (message.equals("mang")) {
+//            GlobalVariableClass.getInstance().setFlavor("mango");
+//        }
+//        else if (message.equals("milk") ) {
+//            GlobalVariableClass.getInstance().setFlavor("milk");
+//        }
+
+        startFlow.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (GlobalVariableClass.getInstance().getCanVend()) {
+                    WriteAdk(GlobalVariableClass.getInstance().getFlavor());
+
+                    Toast.makeText(getApplicationContext(),
+                            "Sending: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
+
+                    GlobalVariableClass.getInstance().setCanVend(false);
+
+                    goNext();
+                }
+
+            }
+        });
 
 
 //        cancelFlow.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +72,13 @@ public class arduino extends AbstractAdkActivity {
     /* Called when the user taps the send button */
     public void goHome(View view) {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    /* Called when the user taps the send button */
+    public void goNext() {
+        Intent intent = new Intent(this, dispensing.class);
         startActivity(intent);
         finish();
     }

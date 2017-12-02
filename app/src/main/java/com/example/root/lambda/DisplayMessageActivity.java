@@ -55,6 +55,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
     public void sendMilk(View view) {
         Intent intent = new Intent(this, venmo.class);
         String message = "milk";
+        GlobalVariableClass.getInstance().setFlavor("milk");
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
         finish();
@@ -64,6 +65,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
     public void sendMango(View view) {
         Intent intent = new Intent(this, venmo.class);
         String message = "mang";
+        GlobalVariableClass.getInstance().setFlavor("mango");
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
         finish();
