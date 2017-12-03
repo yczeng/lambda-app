@@ -35,26 +35,13 @@ public class venmo extends AppCompatActivity {
             | View.SYSTEM_UI_FLAG_FULLSCREEN
             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
-    Thread thread1 = new Thread() {
-        public void run() {
-            playVideo();
-        }
-    };
-
-    Thread thread2 = new Thread() {
-        public void run() {
-            createWebSocketClient();
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(flags);
         setContentView(R.layout.activity_venmo);
 
-        thread1.start();
-        thread2.start();
+        createWebSocketClient();
     }
 
     @Override
@@ -171,21 +158,5 @@ public class venmo extends AppCompatActivity {
 
     public void verifyConnection(View view) {
         ((TextView)findViewById(R.id.textView)).setText("Please venmo $3.50 to @LambdaTea to continue.");
-    }
-
-    public void playVideo(){
-        final VideoView mVideoView2 = (VideoView)findViewById(R.id.videoView6);
-
-        mVideoView2.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            public void onCompletion(MediaPlayer mp) {
-                mVideoView2.start(); //need to make transition seamless.
-            }
-        });
-
-        String uriPath2 = "android.resource://com.example.root.lambda/"+R.raw.loading;
-        Uri uri2 = Uri.parse(uriPath2);
-        mVideoView2.setVideoURI(uri2);
-        mVideoView2.requestFocus();
-        mVideoView2.start();
     }
 }

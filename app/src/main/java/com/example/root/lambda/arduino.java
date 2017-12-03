@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.concurrent.TimeUnit;
+
 import static com.example.root.lambda.venmo.EXTRA_MESSAGE;
 
 public class arduino extends AbstractAdkActivity {
@@ -78,7 +80,12 @@ public class arduino extends AbstractAdkActivity {
 
     /* Called when the user taps the send button */
     public void goNext() {
-        Intent intent = new Intent(this, dispensing.class);
+        try {
+            TimeUnit.SECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
     }

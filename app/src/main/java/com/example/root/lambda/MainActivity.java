@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "not device owner", Toast.LENGTH_SHORT).show();
         }
+
         if (!GlobalVariableClass.getInstance().getKioskMode()){
             enableKioskMode(true);
             GlobalVariableClass.getInstance().setKioskMode(true);
