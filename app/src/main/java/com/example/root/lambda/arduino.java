@@ -41,10 +41,11 @@ public class arduino extends AbstractAdkActivity {
         startFlow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (GlobalVariableClass.getInstance().getCanVend()) {
+                    Toast.makeText(arduino.this, "About to send: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
                     WriteAdk(GlobalVariableClass.getInstance().getFlavor());
 
                     Toast.makeText(getApplicationContext(),
-                            "Sending: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
+                            "Sent: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
 
                     GlobalVariableClass.getInstance().setCanVend(false);
 

@@ -3,6 +3,7 @@ package com.example.root.lambda;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -133,10 +134,18 @@ public class venmo extends AppCompatActivity {
         };
 
         webSocketClient.setConnectTimeout(500);
-//        webSocketClient.setReadTimeout(180000);
+//        webSocketClient.setReadTimeout(600000);
         webSocketClient.enableAutomaticReconnection(500);
         webSocketClient.connect();
     }
+
+//    public String getA_C_string_venmo(){
+//        return GlobalVariableClass.getInstance().getA_C_string();
+//    }
+//
+//    public void setA_C_string_venmo(){
+//
+//    }
 
     public void move() {
         Intent current = getIntent();

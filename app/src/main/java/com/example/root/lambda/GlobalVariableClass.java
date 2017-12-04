@@ -20,6 +20,7 @@ public class GlobalVariableClass {
 
     private boolean canVend = false;
     private String  flavor  = "milk";
+    private String A_C_string = "";
 
     private GlobalVariableClass() {
         // The empty class
@@ -57,6 +58,9 @@ public class GlobalVariableClass {
 
     String getFlavor() {return flavor;}
     void setFlavor(String newFlavor) {flavor = newFlavor;}
+
+    String getA_C_string() {return A_C_string;}
+    void setA_C_string(String A_C_string_new) {A_C_string = A_C_string_new;}
 
 
     private boolean kioskMode = false;

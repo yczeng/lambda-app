@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "not device owner", Toast.LENGTH_SHORT).show();
         }
 
+
+        // Take off admin
+//        mDpm.clearDeviceOwnerApp("com.example.root.lambda");
+
         if (!GlobalVariableClass.getInstance().getKioskMode()){
             enableKioskMode(true);
             GlobalVariableClass.getInstance().setKioskMode(true);
