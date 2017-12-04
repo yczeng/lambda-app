@@ -15,11 +15,13 @@ import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.concurrent.TimeUnit;
+
 import butterknife.ButterKnife;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AbstractAdkActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
     final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -31,9 +33,26 @@ public class MainActivity extends AppCompatActivity {
 
     private DevicePolicyManager mDpm;
 
+    public Thread thread1 = new Thread() {
+        public void run() {
+            boolean boo = true;
+            while (boo){
+                if (GlobalVariableClass.getInstance().getKillThread()){
+                    boo = false;
+                }
+
+                WriteAdk("shitty poo poo");
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    };
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void doOnCreate(Bundle savedInstanceState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         //getWindow().getDecorView().setSystemUiVisibility(flags);
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -52,15 +71,42 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "not device owner", Toast.LENGTH_SHORT).show();
         }
 
-
         // Take off admin
 //        mDpm.clearDeviceOwnerApp("com.example.root.lambda");
 
-        if (!GlobalVariableClass.getInstance().getKioskMode()){
-            enableKioskMode(true);
-            GlobalVariableClass.getInstance().setKioskMode(true);
-        }
+//        if (!GlobalVariableClass.getInstance().getKioskMode()){
+//            enableKioskMode(true);
+//            GlobalVariableClass.getInstance().setKioskMode(true);
+//        }
+
+        GlobalVariableClass.getInstance().setKillThread(false);
+        thread1.start();
+
+//
+//        if(GlobalVariableClass.getInstance().getKillThread()){
+//            thread1.stop();
+//        }
+
+//        while (true){
+//            WriteAdk("shitty poo poo");
+//            try {
+//                TimeUnit.SECONDS.sleep(2);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
+
+    @Override
+    protected void doAdkRead(String stringIn) {
+
+    }
+
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//
+//    }
 
     @Override
     public void onBackPressed() {
@@ -74,6 +120,11 @@ public class MainActivity extends AppCompatActivity {
             Intent closeDialog = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
             sendBroadcast(closeDialog);
         }
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 
     @Override
@@ -91,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
     /* Called when the user taps the send button */
     public void sendMessage(View view) {
+//        GlobalVariableClass.getInstance().setKillThread(true);
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         startActivity(intent);
         finish();

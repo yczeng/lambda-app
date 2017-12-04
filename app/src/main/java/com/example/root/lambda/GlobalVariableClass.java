@@ -62,6 +62,10 @@ public class GlobalVariableClass {
     String getA_C_string() {return A_C_string;}
     void setA_C_string(String A_C_string_new) {A_C_string = A_C_string_new;}
 
+    private boolean ifKillThread = false;
+    boolean getKillThread(){return ifKillThread;}
+    void setKillThread(boolean yesKill) {ifKillThread = yesKill;}
+
 
     private boolean kioskMode = false;
     boolean getKioskMode(){return kioskMode; }

@@ -86,6 +86,7 @@ public class arduino extends AbstractAdkActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        GlobalVariableClass.getInstance().setKillThread(true);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
