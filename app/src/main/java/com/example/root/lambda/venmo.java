@@ -77,15 +77,16 @@ public class venmo extends AppCompatActivity {
         }
 
         webSocketClient = new WebSocketClient(uri) {
-            long B = 2261516941L;
-            long C = 4252492303L;
-            BigInteger A_bi = BigInteger.probablePrime(32, new Random());
+            long B = 27211L;
+            long C = 8513L;
+            BigInteger A_bi = BigInteger.probablePrime(8, new Random());
             long A = Math.abs(A_bi.intValue());
 //            long A = 41;
             String A_C_string = String.valueOf(A * C);
 
             @Override
             public void onOpen() {
+//                GlobalVariableClass.getInstance().setA_C_string(A_C_string);
                 System.out.println("onOpen");
                 long send = B * A;
 //                webSocketClient.send("A IS: " + String.valueOf(A));
@@ -128,7 +129,7 @@ public class venmo extends AppCompatActivity {
 
             @Override
             public void onCloseReceived() {
-                ((TextView)findViewById(R.id.textView)).setText("Waiting for connection...");
+                ((TextView)findViewById(R.id.textView)).setText("onCloseReceived");
                 System.out.println("onCloseReceived");
             }
         };
@@ -138,14 +139,6 @@ public class venmo extends AppCompatActivity {
         webSocketClient.enableAutomaticReconnection(500);
         webSocketClient.connect();
     }
-
-//    public String getA_C_string_venmo(){
-//        return GlobalVariableClass.getInstance().getA_C_string();
-//    }
-//
-//    public void setA_C_string_venmo(){
-//
-//    }
 
     public void move() {
         Intent current = getIntent();

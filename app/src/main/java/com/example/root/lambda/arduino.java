@@ -26,10 +26,9 @@ public class arduino extends AbstractAdkActivity {
 
         Toast.makeText(this, "From Intent: " + message, Toast.LENGTH_SHORT).show();
 
-        Button startFlow = (Button)findViewById(R.id.startFlow);
+        final Button startFlow = (Button)findViewById(R.id.startFlow);
         //Button cancelFlow = (Button)findViewById(R.id.cancelFlow);
-
-        GlobalVariableClass.getInstance().setCanVend(true);
+        startFlow.setEnabled(true);
 
 //        if (message.equals("mang")) {
 //            GlobalVariableClass.getInstance().setFlavor("mango");
@@ -40,17 +39,15 @@ public class arduino extends AbstractAdkActivity {
 
         startFlow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (GlobalVariableClass.getInstance().getCanVend()) {
-                    Toast.makeText(arduino.this, "About to send: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
-                    WriteAdk(GlobalVariableClass.getInstance().getFlavor());
+            Toast.makeText(arduino.this, "Pressed - about to send: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(getApplicationContext(),
-                            "Sent: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
+            WriteAdk(GlobalVariableClass.getInstance().getFlavor());
 
-                    GlobalVariableClass.getInstance().setCanVend(false);
+            Toast.makeText(getApplicationContext(),
+                    "Sent: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
 
-                    goNext();
-                }
+            startFlow.setEnabled(false);
+            goNext();
 
             }
         });
@@ -65,11 +62,11 @@ public class arduino extends AbstractAdkActivity {
 
     }
 
-    @Override
-    protected void doAdkRead(String stringIn) {
-        Toast.makeText(getApplicationContext(), "return text: " + stringIn, Toast.LENGTH_SHORT).show();
-
-    }
+//    @Override
+//    protected void doAdkRead(String stringIn) {
+//        Toast.makeText(getApplicationContext(), "return text: " + stringIn, Toast.LENGTH_SHORT).show();
+//
+//    }
 
 
     /* Called when the user taps the send button */
@@ -86,7 +83,6 @@ public class arduino extends AbstractAdkActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        GlobalVariableClass.getInstance().setKillThread(true);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

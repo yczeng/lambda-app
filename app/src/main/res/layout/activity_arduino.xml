@@ -11,8 +11,8 @@
         android:id="@+id/button6"
         android:layout_width="223dp"
         android:layout_height="74dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/lambdagreen"
         android:fontFamily="sans-serif"
         android:onClick="goHome"
@@ -22,63 +22,47 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/place_cup"
+        android:textColor="@color/lambdagrey"
+        android:textSize="70sp"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
+
+    <ImageView
+        android:id="@+id/imageViewPlaceCup"
+        android:layout_width="600dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="14dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@mipmap/placecup" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:textSize="50sp"
-            android:textColor="@color/lambdagrey"
-            android:text="@string/place_cup"/>
+    <Button
+        android:id="@+id/startFlow"
+        android:layout_width="387dp"
+        android:layout_height="99dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="28dp"
+        android:layout_marginTop="9dp"
+        android:backgroundTint="@color/lambdagreen"
+        android:fontFamily="sans-serif"
+        android:text="@string/start_flow"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPlaceCup" />
 
-        <ImageView
-            android:id="@+id/imageViewPlaceCup"
-            android:layout_width="600dp"
-            android:layout_height="400dp"
-            android:layout_marginBottom="1dp"
-            android:layout_gravity="center_horizontal"
-            app:srcCompat="@mipmap/placecup" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-
-        <Button
-            android:id="@+id/startFlow"
-            android:backgroundTint="@color/lambdagreen"
-            android:layout_gravity="center_horizontal"
-            android:textAllCaps="false"
-            android:layout_width="387dp"
-            android:layout_height="99dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="80dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/start_flow"
-            android:textSize="30sp" />
-
-        <!--Button
-            android:id="@+id/cancelFlow"
-            android:backgroundTint="@color/dangerred"
-            android:layout_gravity="center_horizontal"
-            android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/cancel_flow"
-            android:textSize="30sp" / -->
-    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

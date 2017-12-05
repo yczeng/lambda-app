@@ -21,41 +21,16 @@ import butterknife.ButterKnife;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
-public class MainActivity extends AbstractAdkActivity {
+public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-
-    final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            | View.SYSTEM_UI_FLAG_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
     private DevicePolicyManager mDpm;
 
-    public Thread thread1 = new Thread() {
-        public void run() {
-            boolean boo = true;
-            while (boo){
-                if (GlobalVariableClass.getInstance().getKillThread()){
-                    boo = false;
-                }
-
-                WriteAdk("shitty poo poo");
-                try {
-                    TimeUnit.SECONDS.sleep(2);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    };
-
     @Override
-    protected void doOnCreate(Bundle savedInstanceState) {
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
-        //getWindow().getDecorView().setSystemUiVisibility(flags);
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);;
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
@@ -79,34 +54,7 @@ public class MainActivity extends AbstractAdkActivity {
 //            GlobalVariableClass.getInstance().setKioskMode(true);
 //        }
 
-        GlobalVariableClass.getInstance().setKillThread(false);
-        thread1.start();
-
-//
-//        if(GlobalVariableClass.getInstance().getKillThread()){
-//            thread1.stop();
-//        }
-
-//        while (true){
-//            WriteAdk("shitty poo poo");
-//            try {
-//                TimeUnit.SECONDS.sleep(2);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
     }
-
-    @Override
-    protected void doAdkRead(String stringIn) {
-
-    }
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//    }
 
     @Override
     public void onBackPressed() {
