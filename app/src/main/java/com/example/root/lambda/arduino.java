@@ -1,7 +1,9 @@
 package com.example.root.lambda;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -11,14 +13,15 @@ import java.util.concurrent.TimeUnit;
 
 import static com.example.root.lambda.venmo.EXTRA_MESSAGE;
 
-public class arduino extends AbstractAdkActivity {
+public class arduino extends AppCompatActivity {
 
 
     // For onCreate - check the Activity that this is extending - it is covered there, so do not override
 
 
     @Override
-    protected void doOnCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arduino);
 
         Intent priorIntent = getIntent();   // For getting the variables from the flavors that they chose.
@@ -30,43 +33,45 @@ public class arduino extends AbstractAdkActivity {
         //Button cancelFlow = (Button)findViewById(R.id.cancelFlow);
         startFlow.setEnabled(true);
 
-//        if (message.equals("mang")) {
-//            GlobalVariableClass.getInstance().setFlavor("mango");
-//        }
-//        else if (message.equals("milk") ) {
-//            GlobalVariableClass.getInstance().setFlavor("milk");
-//        }
 
         startFlow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             Toast.makeText(arduino.this, "Pressed - about to send: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
 
-            WriteAdk(GlobalVariableClass.getInstance().getFlavor());
+            // For the audio sending - below
+
+            MediaPlayer mp;
+
+            if(GlobalVariableClass.getInstance().getFlavor().equals("milk")) {
+                mp = MediaPlayer.create(getApplicationContext(), R.raw.hz36_1s);
+            }
+            else {
+                mp = MediaPlayer.create(getApplicationContext(), R.raw.hz36_1s5); // Else, create it for MANGO
+            }
+
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    // TODO Auto-generated method stub
+                    mp.reset();
+                    mp.release();
+                    mp = null;
+                }
+
+            });
+            mp.start();
+
+            // For the Audio sending - above
 
             Toast.makeText(getApplicationContext(),
                     "Sent: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
 
             startFlow.setEnabled(false);
             goNext();
-
             }
         });
-
-
-//        cancelFlow.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                WriteAdk("milk");
-//                Toast.makeText(getApplicationContext(), "Sending milk", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
     }
-
-//    @Override
-//    protected void doAdkRead(String stringIn) {
-//        Toast.makeText(getApplicationContext(), "return text: " + stringIn, Toast.LENGTH_SHORT).show();
-//
-//    }
 
 
     /* Called when the user taps the send button */
