@@ -45,8 +45,14 @@ public class arduino extends AppCompatActivity {
             if(GlobalVariableClass.getInstance().getFlavor().equals("milk")) {
                 mp = MediaPlayer.create(getApplicationContext(), R.raw.hz36_1s);
             }
-            else {
-                mp = MediaPlayer.create(getApplicationContext(), R.raw.hz36_1s5); // Else, create it for MANGO
+            else if(GlobalVariableClass.getInstance().getFlavor().equals("mango")) {
+                mp = MediaPlayer.create(getApplicationContext(), R.raw.hz36_point8s); // Else, create it for MANGO
+            }
+            else if(GlobalVariableClass.getInstance().getFlavor().equals("taro")) {
+                mp = MediaPlayer.create(getApplicationContext(), R.raw.hz36_point5s); // Else, create it for MANGO
+            }
+            else if(GlobalVariableClass.getInstance().getFlavor().equals("lychee")) {
+                mp = MediaPlayer.create(getApplicationContext(), R.raw.hz36_point2s); // Else, create it for MANGO
             }
 
             mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

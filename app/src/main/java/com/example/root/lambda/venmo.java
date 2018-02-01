@@ -69,7 +69,7 @@ public class venmo extends AppCompatActivity {
     private void createWebSocketClient() {
         URI uri;
         try {
-            uri = new URI("ws://34.213.12.212:9001");
+            uri = new URI("ws://34.216.254.145:9001");
         }
         catch (URISyntaxException e) {
             e.printStackTrace();
@@ -77,29 +77,30 @@ public class venmo extends AppCompatActivity {
         }
 
         webSocketClient = new WebSocketClient(uri) {
-            long B = 27211L;
-            long C = 8513L;
-            BigInteger A_bi = BigInteger.probablePrime(8, new Random());
-            long A = Math.abs(A_bi.intValue());
-//            long A = 41;
-            String A_C_string = String.valueOf(A * C);
+//            long B = 27211L;
+//            long C = 8513L;
+//            BigInteger A_bi = BigInteger.probablePrime(8, new Random());
+//            long A = Math.abs(A_bi.intValue());
+////            long A = 41;
+//            String A_C_string = String.valueOf(A * C);
 
             @Override
             public void onOpen() {
+                verifyConnection(null);
 //                GlobalVariableClass.getInstance().setA_C_string(A_C_string);
                 System.out.println("onOpen");
-                long send = B * A;
+//                long send = B * A;
 //                webSocketClient.send("A IS: " + String.valueOf(A));
                 Intent current = getIntent();
                 String message = current.getStringExtra(DisplayMessageActivity.EXTRA_MESSAGE);
 
-                webSocketClient.send(message + String.valueOf(send));
-                verifyConnection(null);
+//                webSocketClient.send(message + String.valueOf(send));
+                webSocketClient.send(message);
             }
 
             @Override
             public void onTextReceived(String message) {
-                if (message.equals(A_C_string)) {
+                if (message.equals("uramazing. emailusat hello@lambdatea.com")) {
                     webSocketClient.send("now vending boba");
                     move();
                     webSocketClient.close();

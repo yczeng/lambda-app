@@ -70,4 +70,24 @@ public class DisplayMessageActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    /* Called when the user taps the send button */
+    public void sendTaro(View view) {
+        Intent intent = new Intent(this, venmo.class);
+        String message = "taro";
+        GlobalVariableClass.getInstance().setFlavor("taro");
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+        finish();
+    }
+
+    /* Called when the user taps the send button */
+    public void sendLychee(View view) {
+        Intent intent = new Intent(this, venmo.class);
+        String message = "lych";
+        GlobalVariableClass.getInstance().setFlavor("lychee");
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+        finish();
+    }
 }
