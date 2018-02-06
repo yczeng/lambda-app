@@ -53,7 +53,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     /* Called when the user taps the send button */
     public void sendMilk(View view) {
-        Intent intent = new Intent(this, venmo.class);
+        Intent intent = new Intent(this, arduino.class);
         String message = "milk";
         GlobalVariableClass.getInstance().setFlavor("milk");
         intent.putExtra(EXTRA_MESSAGE, message);
@@ -63,7 +63,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     /* Called when the user taps the send button */
     public void sendMango(View view) {
-        Intent intent = new Intent(this, venmo.class);
+        Intent intent = new Intent(this, arduino.class);
         String message = "mang";
         GlobalVariableClass.getInstance().setFlavor("mango");
         intent.putExtra(EXTRA_MESSAGE, message);
@@ -73,7 +73,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     /* Called when the user taps the send button */
     public void sendTaro(View view) {
-        Intent intent = new Intent(this, venmo.class);
+        Intent intent = new Intent(this, arduino.class);
         String message = "taro";
         GlobalVariableClass.getInstance().setFlavor("taro");
         intent.putExtra(EXTRA_MESSAGE, message);
@@ -83,7 +83,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     /* Called when the user taps the send button */
     public void sendLychee(View view) {
-        Intent intent = new Intent(this, venmo.class);
+        Intent intent = new Intent(this, arduino.class);
         String message = "lych";
         GlobalVariableClass.getInstance().setFlavor("lychee");
         intent.putExtra(EXTRA_MESSAGE, message);

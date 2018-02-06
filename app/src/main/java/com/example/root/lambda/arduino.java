@@ -51,7 +51,7 @@ public class arduino extends AppCompatActivity {
             else if(GlobalVariableClass.getInstance().getFlavor().equals("taro")) {
                 mp = MediaPlayer.create(getApplicationContext(), R.raw.hz36_point5s); // Else, create it for MANGO
             }
-            else if(GlobalVariableClass.getInstance().getFlavor().equals("lychee")) {
+            else {
                 mp = MediaPlayer.create(getApplicationContext(), R.raw.hz36_point2s); // Else, create it for MANGO
             }
 
@@ -59,6 +59,7 @@ public class arduino extends AppCompatActivity {
 
                 @Override
                 public void onCompletion(MediaPlayer mp) {
+
                     // TODO Auto-generated method stub
                     mp.reset();
                     mp.release();
@@ -69,7 +70,7 @@ public class arduino extends AppCompatActivity {
             mp.start();
 
             // For the Audio sending - above
-
+`1``
             Toast.makeText(getApplicationContext(),
                     "Sent: " + GlobalVariableClass.getInstance().getFlavor(), Toast.LENGTH_SHORT).show();
 

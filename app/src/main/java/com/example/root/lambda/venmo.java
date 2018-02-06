@@ -96,6 +96,7 @@ public class venmo extends AppCompatActivity {
 
 //                webSocketClient.send(message + String.valueOf(send));
                 webSocketClient.send(message);
+
             }
 
             @Override
